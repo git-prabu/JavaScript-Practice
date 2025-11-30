@@ -210,6 +210,7 @@ taken = given(13)  //here the given(num) will become value of taken
 /*
 In Computer Science cue is an abstract data stucture where items are kept in order.
 */
+
 function nextInLine(arr,item){  //here the goal is to add a new charcter to the array(last position)
                                 // and to remove a charcter (first position)
     arr.push(item);
@@ -470,7 +471,6 @@ function golf(par,strokes){
     }
 }
 console.log(golf(5,5));
-
 
 var golfing = ["Hole-in-one","Eagle","Birdie","Par","Bogey","Double Bogey","Go Home!"]
 function play(goal,par){
@@ -803,7 +803,22 @@ var collection = {
     }
 }
 
-var collectionCopy = JSON.parse(JSON.stringify(collection));
+var collectionCopy = JSON.parse(JSON.stringify(collection)); 
+
+function colchange (id,prop,value){
+    if(value === ""){
+        delete collection[id][prop]
+    }else if(prop === "tracks"){
+        collection[id][prop]=collection[id][prop] || []
+        collection[id][prop].push(value)
+    }else{
+        collection[id][prop]=value
+    }
+    return collection;
+}
+
+console.log(colchange(2003,"tracks","pala pala"))
+console.log(colchange(2003,"tracks","hola"))
 
 
 /*CHATGPT-SOLUTION:
@@ -836,4 +851,124 @@ console.log(modifyCollection(2002,"artist","jersey's land"))
 */
 
 
+//WHILE Loops
+var arrwhile = [];
+var i = 0
+while (i<5){
+    arrwhile.push(i)
+    i++
+}
+console.log(arrwhile)
+
+//FOR Loops
+var arrfor=[];
+for (var b=10;b<=200;b+=10){
+    arrfor.push(b)
+}
+console.log(arrfor)
+
+//odd numbers with a for loop
+
+//20 to 100
+
+var arrforodd = [];
+
+for(var i = 20;i<=100;i++){
+    if (i%2 !== 0){
+        arrforodd.push(i)
+    }
+}
+console.log(arrforodd)
+console.log(arrforodd.length)
+var lastodd = arrforodd.length-1;
+console.log(arrforodd[lastodd])
+
+
+//count backwards with a for loop
+
+var backarr = []
+for (var c = 10;c>=0;c -= 1){
+    console.log(c)
+}
+
+//iterate thorugh an array with for loop
+//going to all the numbers in the array using for loop
+var testarr = [120,90,45,56,12];
+var addoarr = 0;
+for (var i =0 ;i < testarr.length;i++){
+    addoarr += testarr[i]
+    console.log(addoarr)
+}
+console.log("final:" + addoarr)
+
+
+
+//practice
+                            var jasmine = {
+                                2002:{
+                                    "artist":"Harrish",
+                                    "tracks":["intro","nenje nenje","pala pala"]
+                                },
+                                2006:{
+                                    "artist":"ar rahman",
+                                    "album":"ponniyin selvan",
+                                    "tracks":[]
+                                },
+                                2010:{
+                                    "album":"all",
+                                    "tracks":["andha maan","poove sem poove","jhonny theme"]
+                                },
+                                2012:{
+                                    "artist":"Harrish",
+                                    "album":"VTV",
+                                }
+                                
+                            }
+
+                            function jaschange(id,prop,val){
+                                if(val===""){
+                                    delete jasmine[id][prop]
+                                }else if (prop == "tracks") {
+                                    jasmine[id][prop] = jasmine[id][prop] || [];
+                                    jasmine[id][prop].push(val);
+                                }else {
+                                    jasmine[id][prop]=val;
+                                }
+                                return jasmine;
+                            }
+
+                            var jasminecopy = JSON.parse(JSON.stringify(jasmine));
+
+                            jaschange(2002,"album","ayan");
+                            jaschange(2006,"tracks","aga naga");
+                            jaschange(2006,"tracks","veera");
+                            jaschange(2006,"tracks","chinanjiru");
+                            jaschange(2010,"artist","ilayaraja");
+                            jaschange(2012,"tracks","hossana");
+                            jaschange(2012,"tracks","anbil avan");
+                            jaschange(2012,"tracks","mannipayya");
+                            console.log(jaschange(2012,"tracks","mannipayya"));
+
+
+
+                            var whilearray = [];
+                            for(var k=0;k < 30;k++){
+                                if (k%2 === 0){
+                                    whilearray.push(k);
+                                }
+                            };
+                            console.log(whilearray);
+
+                            var arback = [1,2,3,4,5,5,6,7,8];
+                            var sumof = 0
+                            for(var i =0;i < arback.length;i++){
+                                sumof += arback[i];
+                                console.log(sumof)
+                            };
+                            console.log(sumof);
+//practice
+
+
+
+//nesting for loop
 
