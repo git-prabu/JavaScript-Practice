@@ -904,71 +904,88 @@ console.log("final:" + addoarr)
 
 
 //practice
-                            var jasmine = {
-                                2002:{
-                                    "artist":"Harrish",
-                                    "tracks":["intro","nenje nenje","pala pala"]
-                                },
-                                2006:{
-                                    "artist":"ar rahman",
-                                    "album":"ponniyin selvan",
-                                    "tracks":[]
-                                },
-                                2010:{
-                                    "album":"all",
-                                    "tracks":["andha maan","poove sem poove","jhonny theme"]
-                                },
-                                2012:{
-                                    "artist":"Harrish",
-                                    "album":"VTV",
-                                }
-                                
-                            }
+var jasmine = {
+    2002:{
+        "artist":"Harrish",
+        "tracks":["intro","nenje nenje","pala pala"]
+    },
+    2006:{
+        "artist":"ar rahman",
+        "album":"ponniyin selvan",
+        "tracks":[]
+    },
+    2010:{
+        "album":"all",
+        "tracks":["andha maan","poove sem poove","jhonny theme"]
+    },
+    2012:{
+        "artist":"Harrish",
+        "album":"VTV",
+    }
+    
+}
 
-                            function jaschange(id,prop,val){
-                                if(val===""){
-                                    delete jasmine[id][prop]
-                                }else if (prop == "tracks") {
-                                    jasmine[id][prop] = jasmine[id][prop] || [];
-                                    jasmine[id][prop].push(val);
-                                }else {
-                                    jasmine[id][prop]=val;
-                                }
-                                return jasmine;
-                            }
+function jaschange(id,prop,val){
+    if(val===""){
+        delete jasmine[id][prop]
+    }else if (prop == "tracks") {
+        jasmine[id][prop] = jasmine[id][prop] || [];
+        jasmine[id][prop].push(val);
+    }else {
+        jasmine[id][prop]=val;
+    }
+    return jasmine;
+}
 
-                            var jasminecopy = JSON.parse(JSON.stringify(jasmine));
+var jasminecopy = JSON.parse(JSON.stringify(jasmine));
 
-                            jaschange(2002,"album","ayan");
-                            jaschange(2006,"tracks","aga naga");
-                            jaschange(2006,"tracks","veera");
-                            jaschange(2006,"tracks","chinanjiru");
-                            jaschange(2010,"artist","ilayaraja");
-                            jaschange(2012,"tracks","hossana");
-                            jaschange(2012,"tracks","anbil avan");
-                            jaschange(2012,"tracks","mannipayya");
-                            console.log(jaschange(2012,"tracks","mannipayya"));
+jaschange(2002,"album","ayan");
+jaschange(2006,"tracks","aga naga");
+jaschange(2006,"tracks","veera");
+jaschange(2006,"tracks","chinanjiru");
+jaschange(2010,"artist","ilayaraja");
+jaschange(2012,"tracks","hossana");
+jaschange(2012,"tracks","anbil avan");
+jaschange(2012,"tracks","mannipayya");
+console.log(jaschange(2012,"tracks","mannipayya"));
 
 
 
-                            var whilearray = [];
-                            for(var k=0;k < 30;k++){
-                                if (k%2 === 0){
-                                    whilearray.push(k);
-                                }
-                            };
-                            console.log(whilearray);
+var whilearray = [];
+for(var k=0;k < 30;k++){
+    if (k%2 === 0){
+        whilearray.push(k);
+    }
+};
+console.log(whilearray);
 
-                            var arback = [1,2,3,4,5,5,6,7,8];
-                            var sumof = 0
-                            for(var i =0;i < arback.length;i++){
-                                sumof += arback[i];
-                                console.log(sumof)
-                            };
-                            console.log(sumof);
+var arback = [1,2,3,4,5,5,6,7,8];
+var sumof = 0
+for(var i =0;i < arback.length;i++){
+    sumof += arback[i];
+    console.log(sumof)
+};
+console.log(sumof);
 //practice
 
 
 
 //nesting for loop
+
+var nesarr = [[1,2],[10,90],[34,12],[28,22]];
+var a = 0 ;
+for ( var i = 0 ; i < nesarr.length ; i++ ){
+    var b = 1 ;
+    for (var j = 0;j < nesarr[i].length;j++){
+        b *= nesarr[i][j];
+    }
+    a += b; 
+    console.log(a);
+}
+
+console.log(a);
+
+
+
+//iterate with Do...While Loops;
 
