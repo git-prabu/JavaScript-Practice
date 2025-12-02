@@ -729,7 +729,7 @@ function winCheck(val){
     }
 }
 
-console.log(winCheck("very strong"));
+console.log(winCheck("very"));
 
 
 //manupulating complex objects
@@ -988,4 +988,156 @@ console.log(a);
 
 
 //iterate with Do...While Loops;
+//In do while loop the condition will be checked after running the loop atleast once..
 
+var arri = [];
+var i= 30;
+do {
+    arri.push(i);
+    i++
+}while (i<20);
+
+console.log(i,arri);
+
+
+
+
+//practice
+var collection = {
+    "2025":{
+        "album":"varanam aayiram",
+        "artist":"harrish jayaraj",
+        "tracks":[
+            "oh shanthi",
+            "ava enna",
+            "adiye kolludhe"
+        ]
+    },
+
+    "2009":{
+        "album":"VTV",
+        "artist":"ar rahman",
+        "tracks":[
+            "hossana",
+            "manipayya"
+        ]
+    },
+
+    "2003":{
+        "artist":"vijay sagar",
+        "tracks":[]
+    },
+    
+    "2012":{
+        "album":"unknown"
+    }
+}
+
+var collectionCopy = JSON.parse(JSON.stringify(collection)); 
+
+function chcol(id,prop,val){
+    if(val === ""){
+        delete collectio[id][prop];
+    }else if(collection.hasOwnProperty(id)){
+        if(prop === "tracks"){
+            collection[id][prop] = collection[id][prop] || []
+            collection[id][prop].push(val)
+        }else{
+            collection[id][prop]=val
+        }
+    }else{
+        collection[id]={}
+        if(prop === "tracks"){
+            collection[id][prop] = []
+            collection[id][prop].push(val)
+        }else{
+            collection[id][prop]=val
+        }
+    }
+    return collection;
+    
+}
+chcol(1992,"album","good");
+chcol(1992,"tracks","kokara kokara ko");
+chcol(1992,"tracks","arjunaru villu");
+console.log(chcol(1992,"artist","UK"));
+
+//practice
+
+//Profile Lookup coding challenge
+var contacts = [
+    {
+        "firstName":"Akira",
+        "lastName":"Laine",
+        "number":"5576215651",
+        "likes":["Pizza","Coding","Brownie Points"]
+    },
+    {
+        "firstName":"Harry",
+        "lastName":"Potter",
+        "number":"2164235484",
+        "likes":["Hogwarts","Magic","Hagrid"]
+    },
+    {
+        "firstName":"Sherlock",
+        "lastName":"Holmes",
+        "number":"7896542315",
+        "likes":["Intriguing Cases","Violin","Books"]
+    },
+    {
+        "firstName":"Prabu",
+        "lastName":"!",
+        "number":"8870747370",
+        "likes":["Adventures","Coding","Movies"]
+    }
+];
+
+
+function contactsfunc(name,prop){
+    for(var i=0 ;i < contacts.length;i++){
+        if(name === contacts[i]["firstName"]){
+            if (contacts[i].hasOwnProperty(prop) === false){ 
+                return "No Such Property"
+            }else{
+                return contacts[i][prop];
+            }
+        }
+    }
+    return "no such contact"
+}
+console.log(contactsfunc("Harry","lastName"));
+
+//profile lookup done...
+
+
+//returning random number using "Math.random()"
+
+function ranfunc(){
+    return Math.random();  //here the number will always be between 0 and 1 and not 1.
+}
+console.log(ranfunc());
+
+
+// generate random whole number usign "Math.floor()"  this will make a fraction a whole number.
+function whonum(){
+    return Math.floor(Math.random()*5); // this will genarate whole number between 0 to 4. 
+}
+console.log(whonum());
+
+function whonum2(){
+    return Math.floor(Math.random()*31); // this will genarate whole number between 0 to 30. 
+}
+console.log(whonum2());
+
+// generating a random number within a Range;
+function wholerange(mymax,mymin){
+    return Math.floor(Math.random() * (mymax - mymin + 1)) + mymin;
+}
+
+console.log(wholerange(10,20));
+
+//Use the parseInt Function -- it converts a string to an integer;
+function convertinteger(str){
+    return parseInt(str) + 100;
+}
+console.log(convertinteger("102"));
