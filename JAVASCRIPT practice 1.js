@@ -1141,3 +1141,46 @@ function convertinteger(str){
     return parseInt(str) + 100;
 }
 console.log(convertinteger("102"));
+
+//parseInt function with Radix
+function conint(str){
+    return parseInt(str,2);
+}
+console.log(conint("1112")); // need to study decimal to binary and radix basics..
+
+//use the conditional (ternary) operator;-- used to make if else statement in a single code line;
+
+
+//condition ? statement-if-true: statement-if-false;
+function ternaryop(a,b){
+    return a === b ? true: false;
+}
+console.log(ternaryop(10,10));   // Simplist example to understand ternary operator
+
+//Use multiple conditional (ternary) operator;
+function checkSign(num){
+    return num > 0 ? "positive" : num == 0 ? "Zero" : num < 0 ? "Negative": "NOT A INTEGER" ;
+}
+console.log(checkSign(461));
+
+
+/*Difference B/W The var and let Keywords;
+  -- let won't allow user to declare the same vaiable twice,
+  -- scope of let VS var */
+function checkScope(){
+"use strict";
+    let i = "Block Scope"
+    if (true){
+        let i = "function Scope"
+        console.log("function Scope i: ",i)
+    }
+    console.log("Block scope i: ", i)
+}
+checkScope();  // SO HERE IF let IS DEFINED INSIDE A BLOCK({}) THEN IT WILL BE ASSIGNED ONLY WITHIN THE BLOCK; 
+
+//Using const;
+// -- this will make the variable only as read-only - which means you can't change a variable value once it is assigned via (const);
+
+
+
+
