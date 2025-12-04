@@ -1180,7 +1180,29 @@ checkScope();  // SO HERE IF let IS DEFINED INSIDE A BLOCK({}) THEN IT WILL BE A
 
 //Using const;
 // -- this will make the variable only as read-only - which means you can't change a variable value once it is assigned via (const);
+function checkConst(str){
+"use strict";
+    const SENTANCE = str + " is good";
+    //SENTANCE = str + "is great"; -- will show error if do this step because const can'nt be altered;
+    for(let i=0;i<SENTANCE.length;i++){
+        console.log(SENTANCE)
+    }
+}
+checkConst("Prabu");
 
 
+const A = [1,2,3,4,5];
+function constArrayChange(){
+    //A = [0,9,8,7,6]; -- this wont work because the array is defined as 'const'.
+    //instead we can assign the value to the index's
+    A[0]=0;
+    A[1]=9;
+    A[2]=8;
+    A[3]=7;
+    A[4]=6;
+}
+console.log("Before: ", A);
+constArrayChange();
+console.log("After: ",A);
 
-
+//prevent object mutation
