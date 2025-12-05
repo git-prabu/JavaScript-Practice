@@ -1206,3 +1206,67 @@ constArrayChange();
 console.log("After: ",A);
 
 //prevent object mutation
+function freeze(){
+    const MATH = {
+        "pi":3.14
+    }
+    Object.freeze(MATH)
+    MATH["pi"]= "fun" 
+    return MATH;
+}
+console.log(freeze());
+const MATH = {
+    "pi":"a square"
+}
+console.log(MATH);
+
+function freezeObj(){
+    "use strict";
+    const MATH_CONSTANTS = {
+        PI : 3.14
+    };
+
+    Object.freeze(MATH_CONSTANTS);
+
+    try{
+        MATH_CONSTANTS.PI = 99;
+    }   catch(ex){
+        console.log(ex);
+    }
+    return MATH_CONSTANTS.PI;
+}
+
+const PI = freezeObj();
+console.log(PI);
+
+
+
+                 /*ARROW FUNCTIONS*/
+
+//Use Arrow functions to write concise annonymous functions
+var magic = function(){
+    return "done"
+}
+console.log(magic());
+
+  //this can be written in short using arrow functions
+const MAGIC = () => "al'right" ; 
+
+console.log(MAGIC()) ;
+
+//write Arrow Functions with parameters;
+const ADDON = (arr1,arr2) => arr1.concat(arr2);
+console.log(ADDON([1,2],[3,4,5]));
+
+//Write Higher Order Arrow Function -- such as map,filter and reduce;
+const realNumberArray = [4,5.6,-1,2,3.2,-3,9];
+
+const squareList = (arr) => {
+    const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => (x*x));
+    return squaredIntegers;
+};
+
+const squaredIntegers = squareList(realNumberArray);
+console.log(squaredIntegers);
+
+//Write higher order arrow function;
