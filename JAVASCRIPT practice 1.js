@@ -1262,11 +1262,29 @@ console.log(ADDON([1,2],[3,4,5]));
 const realNumberArray = [4,5.6,-1,2,3.2,-3,9];
 
 const squareList = (arr) => {
-    const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => (x*x));
+    const squaredIntegers = arr.filter(num => num > 0 && Number.isInteger(num)).map(x => (x*x));
     return squaredIntegers;
 };
 
 const squaredIntegers = squareList(realNumberArray);
 console.log(squaredIntegers);
 
-//Write higher order arrow function;
+const arrayOne = [1,2,3,4,-1,-5.3,6.5,2.2,-6,10];
+//same without higher order arrow functions
+const chnArray = (arr) => {
+    const arrayTwo = [];
+    for (let i=0;i < arr.length;i++){
+        if (arr[i] > 0 & arr[i]%1 === 0){
+             arrayTwo.push(arr[i]*arr[i]);
+        }
+    }
+    return arrayTwo;
+}
+console.log(chnArray(arrayOne));
+
+//Use the Rest Operator(...) with Function Parameters;
+
+
+
+
+
