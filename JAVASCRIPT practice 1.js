@@ -1282,9 +1282,183 @@ const chnArray = (arr) => {
 }
 console.log(chnArray(arrayOne));
 
-//Use the Rest Operator(...) with Function Parameters;
+//giving one argument only for two req. by using default value for second argument;
+const increment= (function(){
+        return function increment(number,value = 1){ // Here im giving 1 as default value to second argument so that i can give only one argument in the function;
+            return number + value;
+        }
+    }
+)();
+console.log(increment(40,30));
+console.log(increment(49));
+
+//Use the Rest Operator(...) with Function Parameters; -- this is used when the argumnet is numbers of variables(i.e,Unknown);
+const sum1 = (function () {
+    return function sum1 (x,y,z) {
+        const args = [x,y,z];
+        return args.reduce((a,b) => a+b, 0); 
+    }
+}) ();
+console.log(sum1(1,2,3));
+//OR
+//OR
+const sum2 = (function () {
+    return function sum (...args){ //so here ... will make the number of arguments as coustom and args will be the array the will have all the arguments; 
+        return args.reduce((a,b) => a+b, 0);
+    }
+}) ();
+console.log(sum2(1,2,10,20));
+
+//Use spread opreator -- need to revise to understand
+const array1 = ["jan","feb","mar","apr","may","june"];
+let array2;
+(function() {
+    //array2 = array1;
+    array2 = [...array1] //spread opreator
+    array1[0] = "pot";
+})();
+console.log(array2); 
+
+//use destructuring assignment to assign variables from objects;
+//--this is  a special syntax for neatly assigning value taken directly from an object to a variable.
+
+const desobj = {a:10,b:20,c:30,d:40};
+    /*old way of assigning the value of an
+    element from an object to a variable
+
+    var x = desobj.a
+    var y = desobj.b
+    var z = desobj.c */
+//simpler way(using destructing assignment)
+
+const {a:w,b:x,c:y,d:z} = desobj;
+console.log(w,z);
+
+const AVG_TEMPERATURE = {
+    today:68,
+    tomorrow:62
+}
+
+const getTempOfTmrw = tomorrowtemp => {
+    const {tomorrow:tomorrowTemp} = AVG_TEMPERATURE
+    return tomorrowTemp; 
+}
+console.log(getTempOfTmrw(AVG_TEMPERATURE));
+
+//Destructuring Assignment with nested objects;
+const LOCAL_FORECAST = {
+    today : {min:45,max:65},
+    tomorrow : {min:51,max:72}
+}
+
+const getMaxOfTmrw = forecast => {
+    const {tomorrow:{max : maxOfTmrw}} = forecast
+    return maxOfTmrw
+}
+console.log(getMaxOfTmrw(LOCAL_FORECAST));
+
+//Use destructive assignment to assign variables from array;
+const [u,i,,o] = [1,2,3,4,5]; // here we can't decide what value we need exactly like in objects but this goes in order so we can use that to assign and get the value we need;
+console.log(u,i,o);
+
+let k = 8 , h = 6;
+[k,h]=[h,k];
+console.log(k,h); //now have switched the values of k and h ;
+
+//use Destructive assignment with the rest operator;
+const SOURCE = [1,2,3,4,5,6,7,8,9,10];
+
+function removeTwo(array){
+    const [ , , ...LIST] = array;
+    return LIST;
+}
+const SOURCEARR = removeTwo(SOURCE)
+console.log(SOURCEARR)
+
+console.log(SOURCE);
+
+//USE destructive assignment to pass an object as a function's parameters;
+const stats = {
+    max : 52.2,
+    median : 2.44,
+    mode : 45,
+    min : 20.16,
+    avg : 33.33
+} 
+
+const half = (function(){
+    //return function half(stats){
+    //   return (stats.max + stats.min) / 2.0;
+    //}; 
+    return function half({max,min}) {
+        return (max + min) / 2.0;
+    }
+})();
+
+console.log(stats);
+console.log(half(stats));
 
 
 
+//Create Strings Using Template Literals(`text`)) -- they are a special type of string that makes creating complex string easier;
+  //1) we can have multiple lines of strings inside this one template literal string
+  //2) we can have single or double quotation inside them 
+  //3) we can put varibles inside the string itself
+const PERSON = {
+    name :"Prabu",
+    age:23
+}
 
+const GREETING  = `Hi my name is ${PERSON.name}!  
+I am ${PERSON.age} years old`
+//anything that is inside a {} starts with a $ like this ${abc.xyz} is a javascript
+console.log(GREETING);
 
+//coding challenge
+const result = {
+    success : ["max-length","no-amd","prefer-arrow-functions"],
+    failure : ["no-var","var-on-top","linebreak"],
+    skipped : ["id-blacklist","no-dup-keys"]
+};
+
+function makeList(arr) {
+    const resultDisplayArray = []
+    for (let i=0;i < arr.length;i++){
+        resultDisplayArray.push(`<li class="text-warning">${arr[i]}</li>`)
+    }
+    return resultDisplayArray;
+}
+
+console.log(makeList(result.failure));
+
+//write concise object Literal Declarations using Simple Fields;
+/*const createPerson = (nam,age,gender) => {
+    return {
+        nam : nam,
+        age : age,
+        gender : gender
+    };
+
+};
+console.log(createPerson("jack",41,"male"));
+*/
+
+const createPerson = (nam,age,gender) => ({nam,age,gender}) // this will give the same result as the above one as the ES6 know wassup;
+console.log(createPerson("jack",41,"male")); 
+
+//write concise declarative functions;
+const BICYCLE = {
+    gear : 2,
+    //setGear : function(newGear) {
+    //    this.gear = newGear;
+    //}
+    setGear(newGear){
+        this.gear = newGear;        
+    }
+};
+
+BICYCLE.setGear(3);
+console.log(BICYCLE.gear);
+
+//use class syntax to define a constructor function;
+ 
