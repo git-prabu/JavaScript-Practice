@@ -11,6 +11,8 @@
         3- const[constant] this variable can never be changed eg:const allTeam = 40;
 */
 
+import { capitalizeString } from "./JS-EXPORT.JS/index.js";
+
 
 var a; // declaring
 var b = 2; // assigning (= is assigning opreator)
@@ -1461,4 +1463,101 @@ BICYCLE.setGear(3);
 console.log(BICYCLE.gear);
 
 //use class syntax to define a constructor function;
- 
+  //-- using constructor function to create and object in old way 
+var jet = function(targetplanet){
+    this.planet = targetplanet
+}
+
+var solarSystem = new jet("earth")
+
+  console.log(solarSystem.planet); // this is old way
+
+//new way
+
+class jump{
+    constructor(targetPlanet){
+        this.planet = targetPlanet 
+    }
+}
+
+var solar = new jump("mars")
+var solar2 = new jump("venus") 
+console.log(solar);
+console.log(solar2);    // we can create multiple objects using this method 
+
+//example
+class basketAdd{
+    constructor(name){
+        this.vegitable = name
+    }
+}
+
+const basket = new basketAdd("Carrot");
+console.log(basket.vegitable);
+
+
+//USE GETTERS AND SETTERS TO CONTROL ACCESS TO AN OBJECT;
+  // -- GETTERS ARE USED TO GET THE VALUE OF A PROPERTY IN A OBJECT WITHOUT THE USER USING THE EXACT PROPERTY NAME TO ACCESS THE VALUE;
+  // -- SETTERS ARE USED TO SET THE VALUE FOR A PROPERTY IN A OBJECT WITHOUT THE USER USING THE EXACT PROPERTY NAME TO ACCESS THE VALUE; 
+class book{
+    constructor(author){
+        this.name = author
+    }
+    //getter
+    get writer(){
+        return this.name
+    }
+    //setter
+    set writer(updatedName){
+        this.name = updatedName;
+    }
+} 
+
+var shelf = new book("robert")
+
+console.log (shelf.name);
+
+//temperature converter , set and get problem; 
+const createClass = () => {
+    class defClass{
+        constructor(defVal){
+            this.defProp = 5/9 * (defVal-32);
+        }
+        get defGetSet(){
+            return this.defProp
+        }
+        set defGetSet(updatedVal){
+            this.defProp = updatedVal
+        }
+    }
+    return defClass; 
+}
+
+const tempClass = createClass();
+const temperature = new tempClass(69)
+var tempResult = temperature.defGetSet
+console.log("Before: " + tempResult);
+temperature.defGetSet = 30;
+tempResult = temperature.defGetSet
+console.log("After: " + tempResult);
+
+//import and export;
+import {capitalizeString} from "./JS-EXPORT.js"
+const impVal = capitalizeString("prabu")
+console.log(impVal);
+
+import { capitalizeFirstString } from "./JS-EXPORT.js";
+const dear = capitalizeFirstString("caps")
+console.log(dear);
+
+//Use * to import everything from a file
+import * as anything from "location";
+
+//create a Export Fallback with Export default
+export default function check() {return "works"};
+
+//import a default export
+import check from "location" // here we did'nt use {} because we are importing a Fallback Export;
+check(a)
+
+                                                                        /*............DONE.........*/
